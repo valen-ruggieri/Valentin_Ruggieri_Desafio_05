@@ -17,11 +17,17 @@
       <tbody>
          
       <% productos.forEach((producto , key)=>{ %>
+       
         <tr>
-          <th scope="row" ><b class="badge bg-primary p-3"><%= key %></b> </th>
-          <td><b class="badge bg-danger p-3"><%= producto.titulo %> </b></td>
-          <td><b class="badge bg-success p-3">$<%= producto.precio %> </b></td>
-          <td><img width="50px" height="50px" class="p-1" src=<%= producto.url %> ></td>
+          <th scope="row"  class="p-3"><b class="badge bg-primary  p-3 mt-3"><%= key+1 %></b> </th>
+          <td class="p-3"><b class="badge bg-danger p-3 mt-3"><%= producto.titulo %> </b></td>
+          <td class="p-3"><b class="badge bg-success p-3 mt-3">$<%= producto.precio %> </b></td>
+          <% if (producto.image){ %> 
+            <% console.log(producto.image) %> 
+            <td class="p-3"><img width="100px" height="100px" class="p-3 " src="<%= producto.image %>"></td>
+          <% } else {%> 
+            <td class="p-3"><img width="100px" height="100px" class="p-3" src=<%= producto.url %> ></td>
+          <% } %> 
         </tr>
         <% }) %>
         
@@ -29,6 +35,12 @@
     </table>
   
     <% } else { %> 
-      <h3>No existen productos</h3>
+      <div class="t">
+      <h1 class="text-center  mt-5 h3 text-secondary  text-opacity-10 fs-1 mb-5 ">No existen productos</h1>
+      <h2 class="text-center text-white"><b class="spinner-border text-secondary  text-opacity-10 m-5" role="status"></b</h2>
+      
+       
+      </b>
+    </div>
       <% } %> 
     </body>

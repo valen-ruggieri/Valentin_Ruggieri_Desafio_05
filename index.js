@@ -4,9 +4,12 @@ const PORT = 8000;
 const path = require("path");
 const productosRouter = require("./routers.js");
 
+
 const server = app.listen(PORT, () => {
   console.log(`Servidor listo en el puerto ${PORT} ✅`);
 });
+
+app.use(express.static(path.join(__dirname+'public')))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("views", path.join(__dirname, "views"));
