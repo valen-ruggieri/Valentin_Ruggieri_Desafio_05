@@ -1,0 +1,34 @@
+<body class="container mt-5 bg-light">
+ <div class="text-end ml-5"> 
+   <a class="w-50 text-decoration-none" href="http://localhost:8000/">💒 <b class="badge bg-dark">HOME</b></a>
+  <a class="w-50 text-decoration-none" href="http://localhost:8000/form">📝<b class="badge bg-primary">FORM</b></a> 
+</div>
+<% if (productos.length > 0) { %>
+    
+    <table class="table table-light bg-gradient border border-2 border-dark table-striped-columns rounded-bottom rounded-3 mt-5 w-100 ">
+      <thead>
+        <tr>
+          <th scope="col" class="text-primary">ID</th>
+          <th scope="col" class="text-danger">Producto</th>
+          <th scope="col" class="text-success">Precio</th>
+          <th scope="col" class="text-light ">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+         
+      <% productos.forEach((producto , key)=>{ %>
+        <tr>
+          <th scope="row" ><b class="badge bg-primary p-3"><%= key %></b> </th>
+          <td><b class="badge bg-danger p-3"><%= producto.titulo %> </b></td>
+          <td><b class="badge bg-success p-3">$<%= producto.precio %> </b></td>
+          <td><img width="50px" height="50px" class="p-1" src=<%= producto.url %> ></td>
+        </tr>
+        <% }) %>
+        
+      </tbody>
+    </table>
+  
+    <% } else { %> 
+      <h3>No existen productos</h3>
+      <% } %> 
+    </body>
